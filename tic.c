@@ -58,7 +58,7 @@ unsigned getSecondes(){
 
 
 void init_traitant_IT(uint32_t num_IT, void (*traitant)(void)){
-    uint32_t* case_IT= (uint32_t*) (0x1000 + 2*4*num_IT);  
+    uint32_t* case_IT= (uint32_t*) (0x1000 + 2*4*num_IT);  // 2 cases pour chaque it et chaque case fait 4o
     *case_IT |= (uint32_t)(traitant) & 0x0000FFFF;
     *case_IT |= (uint32_t) ((uint32_t)KERNEL_CS << 16);
     *(case_IT+1) |= (uint32_t) (0x8e00) & 0x0000FFFF;
